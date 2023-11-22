@@ -15,6 +15,7 @@
     meslo-lgs-nf
     xsel
     nixpkgs-fmt
+    discord
   ];
 
   programs.zsh = {
