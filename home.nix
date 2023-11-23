@@ -43,6 +43,12 @@
         src = "${zsh-powerlevel10k}/share/zsh-powerlevel10k";
       }
     ];
+
+    shellAliases = {
+      gp = "git push";
+      gl = "git pull";
+      gpf = "git push --force-with-lease --force-if-includes";
+    };
   };
 
   programs.alacritty = {
@@ -84,5 +90,6 @@
       key = "555B81DD70BC278778104D82050994FE5A4B2D54";
       signByDefault = true;
     };
+    delta.enable = true;
   };
 }
