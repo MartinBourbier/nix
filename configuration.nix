@@ -11,7 +11,24 @@
       ./hardware-configuration.nix
     ];
 
-  nixpkgs.config.allowUnfree = true;
+  nixpkgs = {
+    config.allowUnfree = true;
+    overlays = [
+      (final: prev: {
+        jetbrains = prev.jetbrains // {
+          idea-ultimate = prev.jetbrains.idea-ultimate.overrideAttrs (oldAttrs: {
+            src = fetchTarball {
+              url = "https://download.jetbrains.com/idea/ideaIU-2023.2.5.tar.gz";
+              sha256 = "13lj46vpvz342lncx147zfyh4ijgk86cwgvd51925kv6mr8bgnqh";
+            };
+
+            version = "2023.2.5";
+          });
+        };
+      })
+    ];
+  };
+
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
   # Use the systemd-boot EFI boot loader.
@@ -90,7 +107,12 @@
   environment.systemPackages = with pkgs; [
     vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
     wget
+    bluez
+    blueman
   ];
+
+  hardware.bluetooth.enable = true;
+  hardware.bluetooth.powerOnBoot = true;
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
