@@ -33,7 +33,7 @@
     initExtraBeforeCompInit = ''
       # p10k instant prompt
       local P10K_INSTANT_PROMPT="$XDG_CACHE_HOME/p10k-instant-prompt-''${(%):-%n}.zsh"
-      [[ ! -r "$P10K_INSTANT_PROMPT" ]] || source "$P10K_INSTANT_PROMPT"
+      [[ ! -r ${./p10k.zsh} ]] || source ${./p10k.zsh}
     '';
 
     plugins = with pkgs; [
@@ -41,11 +41,6 @@
         file = "powerlevel10k.zsh-theme";
         name = "powerlevel10k";
         src = "${zsh-powerlevel10k}/share/zsh-powerlevel10k";
-      }
-      {
-        file = "p10k.zsh";
-        name = "powerlevel10k-config";
-        src = ./p10k.zsh; # Some directory containing your p10k.zsh file
       }
     ];
   };
