@@ -25,6 +25,30 @@
     }))
   ];
 
+  programs.neovim = {
+    enable = true;
+    defaultEditor = true;
+    plugins = with pkgs.vimPlugins; [
+      vim-airline
+      nvim-lspconfig
+      gruvbox
+    ];
+    withNodeJs = true;
+    extraConfig = ''
+      colorscheme gruvbox
+
+      set cc=120
+      set scrolloff=5
+
+      set mouse-=a
+      set number relativenumber
+      set list listchars=tab:.\ ,trail:.,extends:>,precedes:<,nbsp:_
+      set autoindent expandtab tabstop=4 softtabstop=4 shiftwidth=4
+      set backspace=start,eol,indent
+      set hlsearch incsearch
+    '';
+  };
+
   programs.zsh = {
     enable = true;
     enableAutosuggestions = true;
@@ -48,6 +72,7 @@
       gp = "git push";
       gl = "git pull";
       gpf = "git push --force-with-lease --force-if-includes";
+      vim = "nvim";
     };
   };
 
