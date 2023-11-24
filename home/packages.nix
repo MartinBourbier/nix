@@ -1,4 +1,9 @@
 { pkgs, ...}:
+let
+  chrome = pkgs.writeShellScriptBin "chrome" ''
+    ${pkgs.google-chrome}/bin/google-chrome-stable
+  '';
+in
 {
   home.packages = with pkgs; [
     zsh
@@ -10,6 +15,7 @@
     nixpkgs-fmt
     discord
     jetbrains.idea-ultimate
+    chrome
     google-chrome
   ];
 }
