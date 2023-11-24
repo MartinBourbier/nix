@@ -29,6 +29,7 @@
     shellAliases = {
       gp = "git push";
       gl = "git pull";
+      gdca = "git diff --cached";
       gpf = "git push --force-with-lease --force-if-includes";
       vim = "nvim";
     };
