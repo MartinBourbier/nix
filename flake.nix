@@ -30,7 +30,7 @@
               home-manager.useGlobalPkgs = true;
               home-manager.useUserPackages = true;
               home-manager.users.martin = {
-                imports = [ ./home.nix ];
+                imports = [ ./home ];
               };
             }
           ];
