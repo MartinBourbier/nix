@@ -10,6 +10,9 @@ in {
         theme = {
           theme = "solarized-dark";
         };
+        icons = {
+          icons = "awesome6";
+        };
       };
       blocks = [
         {
