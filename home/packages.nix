@@ -10,5 +10,6 @@
     nixpkgs-fmt
     discord
     jetbrains.idea-ultimate
+    google-chrome
   ];
 }
