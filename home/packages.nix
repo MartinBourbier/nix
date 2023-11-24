@@ -3,7 +3,7 @@ let
   mkAlias = pkgsName: aliasName: pkgs.writeShellScriptBin "${aliasName}" ''
     ${pkgsName}
   '';
-  chrome = mkAlias "google-chrome-stable" "chrome";
+  chrome = mkAlias "${pkgs.google-chrome}/bin/google-chrome-stable" "chrome";
 in
 {
   home.packages = with pkgs; [
