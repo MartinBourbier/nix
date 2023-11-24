@@ -10,9 +10,19 @@
     ];
 
   boot.initrd.availableKernelModules = [ "xhci_pci" "ahci" "nvme" "usbhid" "sdhci_pci" ];
-  boot.initrd.kernelModules = [ "dm-snapshot" ];
+  boot.initrd.kernelModules = [ "dm-snapshot" "i915" ];
   boot.kernelModules = [ "kvm-intel" ];
   boot.extraModulePackages = [ ];
+
+  hardware.opengl.extraPackages = with pkgs; [
+    vaapiIntel
+    libvdpau-va-gl
+    intel-media-driver
+  ];
+
+  environment.variables = {
+    VDPAU_DRIVER = lib.mkDefault "va_gl";
+  };
 
   fileSystems."/" =
     {
