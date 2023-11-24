@@ -1,21 +1,23 @@
 { pkgs, ...}:
 let
-  chrome = pkgs.writeShellScriptBin "chrome" ''
-    ${pkgs.google-chrome}/bin/google-chrome-stable
+  mkAlias = pkgsName: aliasName: pkgs.writeShellScriptBin "${aliasName}" ''
+    ${pkgsName}
   '';
+  chrome = mkAlias "google-chrome-stable" "chrome";
 in
 {
   home.packages = with pkgs; [
+    bat
+    chrome
+    discord
+    git
+    google-chrome
+    htop
+    jetbrains.idea-ultimate
+    meslo-lgs-nf
+    nixpkgs-fmt
+    xsel
     zsh
     zsh-powerlevel10k
-    git
-    htop
-    meslo-lgs-nf
-    xsel
-    nixpkgs-fmt
-    discord
-    jetbrains.idea-ultimate
-    chrome
-    google-chrome
   ];
 }
