@@ -10,6 +10,7 @@ in
     bat
     chrome
     discord
+    font-awesome
     git
     google-chrome
     htop
