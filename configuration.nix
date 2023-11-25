@@ -13,9 +13,7 @@
 
   nixpkgs = {
     config.allowUnfree = true;
-    overlays = [
-      (import ./overlays/idea-ultimate.nix)
-    ];
+    overlays = (import ./overlays);
   };
 
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
