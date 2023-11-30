@@ -72,6 +72,8 @@
     enable = true;
   };
 
+  programs.neovim.vimAlias = true;
+
   programs.gnupg.agent = {
     enable = true;
     enableSSHSupport = true;
