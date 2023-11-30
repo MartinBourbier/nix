@@ -89,6 +89,7 @@
       firefox
       tree
     ];
+    hashedPassword = "$y$j9T$ngilX9AlW9fg2kaR8rDlb/$i8laymiLD2lRPwO2is6pRwlCpGC/NO0V7cZZ8A/.cz0";
   };
 
   # List packages installed in system profile. To search, run:
