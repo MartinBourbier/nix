@@ -8,7 +8,7 @@ in {
     bars.default = {
       settings = {
         theme = {
-          theme = "solarized-dark";
+          theme = "modern";
         };
         icons = {
           icons = "awesome6";
