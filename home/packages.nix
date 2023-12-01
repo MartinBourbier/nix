@@ -1,4 +1,4 @@
-{ pkgs, ...}:
+{ pkgs, ... }:
 let
   mkAlias = pkgsName: aliasName: pkgs.writeShellScriptBin "${aliasName}" ''
     ${pkgsName}
