@@ -1,8 +1,9 @@
 { config, lib, pkgs, ... }:
 
-let 
+let
   mod = "Mod4";
-in {
+in
+{
   programs.i3status-rust = {
     enable = true;
     bars.default = {
