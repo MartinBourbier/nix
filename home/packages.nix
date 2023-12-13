@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, pkgs-unstable, ... }:
 let
   mkAlias = pkgsName: aliasName: pkgs.writeShellScriptBin "${aliasName}" ''
     ${pkgsName}
@@ -14,7 +14,7 @@ in
     git
     google-chrome
     htop
-    jetbrains.idea-ultimate
+    pkgs-unstable.jetbrains.idea-ultimate
     meslo-lgs-nf
     nixpkgs-fmt
     xsel
