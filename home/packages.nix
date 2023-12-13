@@ -14,9 +14,10 @@ in
     git
     google-chrome
     htop
-    pkgs-unstable.jetbrains.idea-ultimate
     meslo-lgs-nf
     nixpkgs-fmt
+    pkgs-unstable.jetbrains.idea-ultimate
+    scrot
     xsel
     zsh
     zsh-powerlevel10k
