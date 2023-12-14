@@ -5,7 +5,7 @@
     enableAutosuggestions = true;
     dotDir = ".config/zsh";
     defaultKeymap = "emacs";
-    autocd = true;
+    autocd = false;
 
     initExtraBeforeCompInit = ''
       # p10k instant prompt
