@@ -18,6 +18,7 @@ in
     nixpkgs-fmt
     pkgs-unstable.jetbrains.idea-ultimate
     scrot
+    tree
     xsel
     zsh
     zsh-powerlevel10k

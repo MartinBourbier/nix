@@ -5,14 +5,15 @@
     defaultEditor = true;
     vimAlias = true;
     plugins = with pkgs.vimPlugins; [
-      vim-airline
-      nvim-lspconfig
-      gruvbox
-      coc-json
       coc-clangd
+      coc-json
       coc-pyright
+      coc-python
       coc-yaml
       fzf-vim
+      gruvbox
+      nvim-lspconfig
+      vim-airline
       vim-polyglot
     ];
     withNodeJs = true;
