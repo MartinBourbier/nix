@@ -1,5 +1,4 @@
 { pkgs, lib, config, nixos-hardware, ... }:
-
 {
   imports = [
     ../../profiles/core.nix
@@ -10,10 +9,9 @@
     nixos-hardware.nixosModules.common-pc
     nixos-hardware.nixosModules.common-pc-ssd
     nixos-hardware.nixosModules.dell-xps-13-9310
+    nixos-hardware.nixosModules.dell-xps-13-9370
   ];
-  networking = {
-    hostName = "dell-xps";
-  };
+  networking = { hostName = "dell-xps"; };
 
   boot.initrd.availableKernelModules = [ "xhci_pci" "thunderbolt" "nvme" "usb_storage" "sd_mod" ];
   boot.initrd.kernelModules = [ ];
@@ -46,6 +44,11 @@
   nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
   powerManagement.cpuFreqGovernor = lib.mkDefault "powersave";
   hardware.cpu.intel.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
+
+  environment.systemPackages = with pkgs; [
+    # webcam firmware
+    ivsc-firmware
+  ];
 
   # webcam
   hardware.ipu6 = {
