@@ -17,6 +17,7 @@ in
     meslo-lgs-nf
     nixpkgs-fmt
     pkgs-unstable.jetbrains.idea-ultimate
+    python3
     scrot
     tree
     xsel
