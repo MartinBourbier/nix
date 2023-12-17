@@ -1,2 +1,3 @@
 [
+  (import ./ivsc-firmware.nix)
 ]
