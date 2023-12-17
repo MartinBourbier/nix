@@ -62,6 +62,10 @@ in
           format = " $timestamp.datetime(f:'%a %d/%m %R') ";
           interval = 60;
         }
+        {
+          block = "battery";
+          format = "$icon $percentage";
+        }
       ];
     };
   };
