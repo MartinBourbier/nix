@@ -24,6 +24,7 @@
 
   programs.neovim.vimAlias = true;
   programs.zsh.enable = true;
+  services.xserver.libinput.enable = true;
 
   services.gvfs.enable = true;
   services.openssh.enable = true;
