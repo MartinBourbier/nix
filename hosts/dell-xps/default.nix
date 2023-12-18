@@ -1,6 +1,7 @@
 { pkgs, lib, config, nixos-hardware, ... }:
 {
   imports = [
+    ../../profiles/assistant.nix
     ../../profiles/core.nix
     ../../profiles/docker.nix
     ../../profiles/forge.nix
