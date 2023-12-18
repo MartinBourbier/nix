@@ -3,6 +3,7 @@
   imports = [
     ../../profiles/core.nix
     ../../profiles/docker.nix
+    ../../profiles/forge.nix
     ../../profiles/laptop.nix
     ../../profiles/yubikey.nix
     nixos-hardware.nixosModules.common-cpu-intel
