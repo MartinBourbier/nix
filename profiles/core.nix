@@ -36,5 +36,14 @@
 
   environment.systemPackages = with pkgs; [
     file
+    linux-manual
+    man-pages
+    man-pages-posix
   ];
+
+  documentation = {
+    enable = true;
+    man.enable = true;
+    dev.enable = true;
+  };
 }
