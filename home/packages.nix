@@ -10,6 +10,7 @@ in
     bat
     chrome
     discord
+    feh
     font-awesome
     git
     google-chrome
@@ -19,6 +20,7 @@ in
     pkgs-unstable.jetbrains.idea-ultimate
     python3
     scrot
+    spotify
     tree
     xsel
     zsh
