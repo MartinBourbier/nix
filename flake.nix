@@ -33,7 +33,6 @@
       };
     in
     {
-      toto = pkgset "x86_64-linux";
       nixosConfigurations =
         let
           nixosSystem = hostName:
