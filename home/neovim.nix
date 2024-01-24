@@ -5,7 +5,6 @@
     defaultEditor = true;
     vimAlias = true;
     plugins = with pkgs.vimPlugins; [
-      coc-clangd
       coc-json
       coc-pyright
       coc-python
