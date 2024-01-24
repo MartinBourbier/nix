@@ -5,6 +5,9 @@
   networking.networkmanager.enable = true;
   programs.nm-applet.enable = true;
   users.users.martin.extraGroups = [ "networkmanager" ];
+  environment.systemPackages = with pkgs; [
+    networkmanagerapplet
+  ];
 
   # bluetooth
   services.blueman.enable = true;
