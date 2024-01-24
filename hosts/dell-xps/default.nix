@@ -37,7 +37,6 @@
       device = "/dev/disk/by-uuid/1E72-6AAF";
       fsType = "vfat";
     };
-
   swapDevices =
     [{ device = "/dev/disk/by-uuid/5878b4c1-8fc1-4f84-80a1-5860dcc98dbb"; }];
 
@@ -47,16 +46,13 @@
   powerManagement.cpuFreqGovernor = lib.mkDefault "powersave";
   hardware.cpu.intel.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
 
+  # Allows for updating firmware via `fwupdmgr`.
+  services.fwupd.enable = lib.mkForce true;
+
   environment.systemPackages = with pkgs; [
     # webcam firmware
     ivsc-firmware
   ];
-
-  # webcam
-  hardware.ipu6 = {
-    enable = true;
-    platform = "ipu6ep";
-  };
 
   system.stateVersion = "23.11";
 }
