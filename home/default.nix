@@ -4,8 +4,9 @@
     ./alacritty.nix
     ./git.nix
     ./i3.nix
-    ./neovim.nix
+    ./neovim/neovim.nix
     ./packages.nix
+    ./vscode.nix
     ./zsh.nix
   ];
 

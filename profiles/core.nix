@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ config, pkgs, lib, ... }:
 
 {
   imports = [
@@ -32,18 +32,65 @@
   services.xserver = {
     enable = true;
     windowManager.i3.enable = true;
+    xkb.options = "caps:swapescape";
   };
 
   environment.systemPackages = with pkgs; [
+    arandr
+    evince
     file
     linux-manual
     man-pages
     man-pages-posix
+    (wrapFirefox firefox-unwrapped {
+      extraPolicies = {
+        CaptivePortal = false;
+        DisableFirefoxStudies = true;
+        DisablePocket = true;
+        DisableTelemetry = true;
+        DisableFirefoxAccounts = true;
+        UserMessaging = {
+          ExtensionRecommendations = false;
+          SkipOnboarding = true;
+        };
+        FirefoxHome = {
+          Search = false;
+          TopSites = false;
+          Highlights = false;
+          Pocket = false;
+          Snippets = false;
+        };
+        Homepage = {
+          StartPage = "none";
+        };
+        NewTabPage = false;
+        NoDefaultBookmarks = true;
+        OfferToSaveLogins = false;
+        OverrideFirstRunPage = "";
+        PasswordManagerEnabled = false;
+        Bookmarks = [
+          {
+            Title = "Google";
+            URL = "https://google.com";
+            Favicon = "https://google.com/favicon.ico";
+            Placement = "toolbar";
+          }
+        ];
+      };
+    })
+    zoxide
   ];
 
   documentation = {
     enable = true;
     man.enable = true;
     dev.enable = true;
+  };
+
+  # Allows ccls to work with system headers without compile db
+  environment.variables = {
+    CPATH = lib.mkForce (builtins.concatStringsSep ":" [
+      (lib.makeSearchPathOutput "dev" "include" [ pkgs.stdenv.cc.cc.lib ])
+    ]);
   };
 }

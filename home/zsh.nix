@@ -16,6 +16,7 @@
     initExtra = ''
       bindkey ";5C" forward-word
       bindkey ";5D" backward-word
+      eval "$(${pkgs.zoxide}/bin/zoxide init --cmd cd zsh)"
     '';
 
     plugins = with pkgs; [
@@ -32,6 +33,8 @@
       gdca = "git diff --cached";
       gpf = "git push --force-with-lease --force-if-includes";
       cat = "bat";
+      us = "setxkbmap us";
+      intl = "setxkbmap us -variant intl";
     };
   };
 }

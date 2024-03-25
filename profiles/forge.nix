@@ -10,5 +10,6 @@
     jdk17
     maven
     nodejs_21
+    yarn
   ];
 }
