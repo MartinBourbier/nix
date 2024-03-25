@@ -7,10 +7,12 @@
     automake
     autoreconfHook
     clang-tools
+    cmake
     gcc
     gdb
     gnumake
     libtool
+    libyamlcpp
     slack
     universal-ctags
     valgrind

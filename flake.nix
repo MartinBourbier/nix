@@ -11,9 +11,10 @@
     };
     flake-utils.url = "git+https://github.com/numtide/flake-utils?ref=main";
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
+    nix-vscode-extensions.url = "github:nix-community/nix-vscode-extensions";
   };
 
-  outputs = { self, nixpkgs, nixpkgs-unstable, nixpkgs-master, home-manager, flake-utils, nixos-hardware } @ inputs:
+  outputs = { self, nixpkgs, nixpkgs-unstable, nixpkgs-master, home-manager, flake-utils, nixos-hardware, nix-vscode-extensions } @ inputs:
     let
       inherit (nixpkgs) lib;
 
@@ -47,7 +48,10 @@
                 home-manager.nixosModules.home-manager
                 {
                   home-manager.useGlobalPkgs = true;
-                  home-manager.extraSpecialArgs = { inherit (pkgset system) pkgs-unstable; };
+                  home-manager.extraSpecialArgs = {
+                    inherit (pkgset system) pkgs-unstable;
+                    inherit (nix-vscode-extensions.extensions.${system}) vscode-marketplace;
+                  };
                   home-manager.useUserPackages = true;
                   home-manager.users.martin = {
                     imports = [

@@ -5,7 +5,9 @@
     ../../profiles/core.nix
     ../../profiles/docker.nix
     ../../profiles/forge.nix
+    ../../profiles/gistre.nix
     ../../profiles/laptop.nix
+    ../../profiles/rust.nix
     ../../profiles/yubikey.nix
     nixos-hardware.nixosModules.common-cpu-intel
     nixos-hardware.nixosModules.common-pc
@@ -18,6 +20,7 @@
   boot.initrd.availableKernelModules = [ "xhci_pci" "thunderbolt" "nvme" "usb_storage" "sd_mod" ];
   boot.initrd.kernelModules = [ ];
   boot.kernelModules = [ "kvm-intel" ];
+  boot.kernelPackages = pkgs.linuxPackages_zen;
   boot.extraModulePackages = [ ];
 
   fileSystems."/" = {
