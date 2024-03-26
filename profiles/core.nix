@@ -22,9 +22,7 @@
     hashedPassword = "$y$j9T$ngilX9AlW9fg2kaR8rDlb/$i8laymiLD2lRPwO2is6pRwlCpGC/NO0V7cZZ8A/.cz0";
   };
 
-  programs.neovim.vimAlias = true;
   programs.zsh.enable = true;
-  services.xserver.libinput.enable = true;
 
   services.gvfs.enable = true;
   services.openssh.enable = true;
@@ -32,6 +30,7 @@
   services.xserver = {
     enable = true;
     windowManager.i3.enable = true;
+    libinput.enable = true;
     xkb.options = "caps:swapescape";
   };
 
