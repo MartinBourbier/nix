@@ -1,29 +1,30 @@
-{ config, pkgs, ... }:
-{
+{ config, pkgs, ... }: {
   programs.neovim = {
     enable = true;
     defaultEditor = true;
     vimAlias = true;
-    plugins = with pkgs.vimPlugins; [
-      {
-        plugin = conform-nvim;
-        type = "lua";
-        config = ''
-          require("conform").setup({
-            formatters_by_ft = {
-              cpp = { "clang-format" }
-            },
-          })
+    plugins = with pkgs.vimPlugins; [{
+      plugin = conform-nvim;
+      type = "lua";
+      config = ''
+        require("conform").setup({
+          formatters_by_ft = {
+            cpp = { "clang_format" },
+            nix = { "nixpkgs_fmt" },
+            rust = { "rustfmt" },
+            python = { "black" }
+          },
+        })
 
-          require("conform").setup({
-            format_on_save = {
-              -- These options will be passed to conform.format()
-              timeout_ms = 500,
-              lsp_fallback = true,
-            },
-          })
-        '';
-      }
+        require("conform").setup({
+          format_on_save = {
+            -- These options will be passed to conform.format()
+            timeout_ms = 500,
+            lsp_fallback = true,
+          },
+        })
+      '';
+    }
       cmp-nvim-lsp
       coc-eslint
       fzf-vim
@@ -42,8 +43,7 @@
         config = builtins.readFile (./tree-sitter.lua);
       }
       vim-airline
-      vim-polyglot
-    ];
+      vim-polyglot];
     withNodeJs = true;
     coc = {
       enable = true;
