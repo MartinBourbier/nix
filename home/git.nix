@@ -13,7 +13,8 @@
           user = {
             name = "Martin Bourbier";
             email = "martin@forge.epita.fr";
-            signingKey = "555B81DD70BC278778104D82050994FE5A4B2D54";
+            # 6111444905B07655EA63D1022D7CF9F257FDB16E
+            signingKey = "6111444905B07655EA63D1022D7CF9F257FDB16E";
           };
           commit.gpgsign = true;
           delta.enable = true;
