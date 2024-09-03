@@ -204,7 +204,7 @@ in
   ] ++ [
     # arduino-core-esp32
     aarch64-none-elf
-    stm32cube
+    # stm32cube
 
     # platformio-fhs
     # pkgs.platformio-core
