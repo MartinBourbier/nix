@@ -61,6 +61,7 @@
 
       set cc=120
       set scrolloff=5
+      set nohlsearch
 
       set mouse-=a
       set number relativenumber

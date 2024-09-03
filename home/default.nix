@@ -6,7 +6,7 @@
     ./i3.nix
     ./neovim/neovim.nix
     ./packages.nix
-    ./vscode.nix
+    # ./vscode.nix
     ./zsh.nix
   ];
 

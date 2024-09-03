@@ -7,9 +7,12 @@
   ];
 
   environment.systemPackages = with pkgs; [
+    apache-directory-studio
     jdk17
     maven
     nodejs_21
+    openldap
+    openssl
     yarn
   ];
 }

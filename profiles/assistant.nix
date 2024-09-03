@@ -10,6 +10,7 @@
     cmake
     gcc
     gdb
+    gnum4
     gnumake
     libtool
     libyamlcpp
@@ -17,4 +18,7 @@
     universal-ctags
     valgrind
   ];
+  environment.variables = {
+    ACLOCAL_PATH = "${pkgs.autoconf-archive}/share/aclocal:${pkgs.autoconf}/share/aclocal:${pkgs.automake}/share/aclocal:${pkgs.libtool}/share/aclocal";
+  };
 }

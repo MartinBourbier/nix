@@ -13,11 +13,14 @@
       oderwat.indent-rainbow
       vscodevim.vim
     ] ++ (with vscode-marketplace; [
+      bmd.stm32-for-vscode
       dsznajder.es7-react-js-snippets
       ecmel.vscode-html-css
       mohd-akram.vscode-html-format
+      ms-vscode.cpptools
       ms-vscode.vscode-typescript-next
       react-utilities.react-utilities
+      platformio.platformio-ide
     ]);
   };
 }

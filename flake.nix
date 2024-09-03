@@ -23,6 +23,10 @@
           inherit system;
           config = {
             allowUnfree = true;
+            permittedInsecurePackages = [
+              "nix-2.15.3"
+              "python-2.7.18.7"
+            ];
           };
           overlays = (import ./overlays);
         };

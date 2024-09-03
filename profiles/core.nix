@@ -32,51 +32,21 @@
     windowManager.i3.enable = true;
     libinput.enable = true;
     xkb.options = "caps:swapescape";
+    xautolock.enable = true;
   };
 
   environment.systemPackages = with pkgs; [
     arandr
     evince
     file
+    git-sizer
     linux-manual
+    lsof
     man-pages
     man-pages-posix
-    (wrapFirefox firefox-unwrapped {
-      extraPolicies = {
-        CaptivePortal = false;
-        DisableFirefoxStudies = true;
-        DisablePocket = true;
-        DisableTelemetry = true;
-        DisableFirefoxAccounts = true;
-        UserMessaging = {
-          ExtensionRecommendations = false;
-          SkipOnboarding = true;
-        };
-        FirefoxHome = {
-          Search = false;
-          TopSites = false;
-          Highlights = false;
-          Pocket = false;
-          Snippets = false;
-        };
-        Homepage = {
-          StartPage = "none";
-        };
-        NewTabPage = false;
-        NoDefaultBookmarks = true;
-        OfferToSaveLogins = false;
-        OverrideFirstRunPage = "";
-        PasswordManagerEnabled = false;
-        Bookmarks = [
-          {
-            Title = "Google";
-            URL = "https://google.com";
-            Favicon = "https://google.com/favicon.ico";
-            Placement = "toolbar";
-          }
-        ];
-      };
-    })
+    unzip
+    usbutils
+    zip
     zoxide
   ];
 

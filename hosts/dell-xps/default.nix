@@ -15,6 +15,7 @@
     nixos-hardware.nixosModules.dell-xps-13-9310
     nixos-hardware.nixosModules.dell-xps-13-9370
   ];
+
   networking = { hostName = "dell-xps"; };
 
   boot.initrd.availableKernelModules = [ "xhci_pci" "thunderbolt" "nvme" "usb_storage" "sd_mod" ];
