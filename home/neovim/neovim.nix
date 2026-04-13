@@ -73,10 +73,8 @@
       filetype plugin indent on
     '';
     extraPackages = with pkgs; [
-      arduino-language-server
       cmake-language-server
       libcxx
-      vhdl-ls
       terraform-ls
       nixfmt
       rnix-lsp

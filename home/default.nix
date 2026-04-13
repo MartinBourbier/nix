@@ -12,7 +12,7 @@
 
   home.username = "martin";
   home.homeDirectory = "/home/martin";
-  home.stateVersion = "23.05";
+  home.stateVersion = "25.11";
 
   programs.home-manager.enable = true;
 }
