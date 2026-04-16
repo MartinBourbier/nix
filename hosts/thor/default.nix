@@ -6,31 +6,37 @@
     ../../profiles/rust.nix
     ../../profiles/yubikey.nix
     nixos-hardware.nixosModules.common-cpu-amd
-    nixos-hardware.nixosModules.common-gpu-amd
     nixos-hardware.nixosModules.common-pc
     nixos-hardware.nixosModules.common-pc-ssd
   ];
 
+  hardware.amdgpu.initrd.enable = true;
+  hardware.firmware = [ pkgs.linux-firmware ];
+  hardware.graphics = {
+    enable = true;
+    enable32Bit = true;
+  };
   networking = { hostName = "thor"; };
 
-  boot.initrd.availableKernelModules = [ "xhci_pci" "thunderbolt" "nvme" "usb_storage" "sd_mod" ];
+  boot.extraModulePackages = [ ];
+  boot.initrd.availableKernelModules = [ "nvme" "xhci_pci" "ahci" "thunderbolt" "usb_storage" "usbhid" "sd_mod" ];
+  boot.initrd.kernelModules = [ ];
+  boot.initrd.luks.devices."crypt".device = "/dev/disk/by-label/crypt";
+  boot.kernelModules = [ "kvm-amd" ];
 
   fileSystems."/" =
     {
-      device = "/dev/disk/by-uuid/b19da865-c038-4970-bb20-433069a3c312";
+      device = "/dev/disk/by-label/root";
       fsType = "ext4";
     };
-
-  boot.initrd.luks.devices."luks-119baba5-27b9-462c-82b7-3b3d01e4def5".device = "/dev/disk/by-uuid/119baba5-27b9-462c-82b7-3b3d01e4def5";
-
   fileSystems."/boot" =
     {
-      device = "/dev/disk/by-uuid/0F41-D6C5";
+      device = "/dev/disk/by-label/boot";
       fsType = "vfat";
       options = [ "fmask=0022" "dmask=0022" ];
     };
 
-  swapDevices = [ ];
+  swapDevices = [{ device = "/dev/disk/by-label/swap"; }];
 
   networking.useDHCP = lib.mkDefault true;
 
@@ -42,6 +48,8 @@
       y = 2160;
     }
   ];
+
+  services.xserver.videoDrivers = [ "amdgpu" ];
 
   environment.systemPackages = with pkgs; [
     alsa-scarlett-gui

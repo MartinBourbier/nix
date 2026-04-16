@@ -1,9 +1,9 @@
-{ pkgs, ... }:
+{ pkgs, config, ... }:
 {
   programs.zsh = {
     enable = true;
-    enableAutosuggestions = true;
-    dotDir = ".config/zsh";
+    autosuggestion.enable = true;
+    dotDir = "${config.home.homeDirectory}/.config/zsh";
     defaultKeymap = "emacs";
     autocd = false;
 

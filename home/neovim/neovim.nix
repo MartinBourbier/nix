@@ -47,14 +47,6 @@
     withNodeJs = true;
     coc = {
       enable = true;
-      settings = {
-        languageserver = {
-          nix = {
-            command = "rnix-lsp";
-            filetypes = [ "nix" ];
-          };
-        };
-      };
     };
     extraConfig = ''
       colorscheme gruvbox
@@ -77,7 +69,6 @@
       libcxx
       terraform-ls
       nixfmt
-      rnix-lsp
       rust-analyzer
       nodePackages.typescript-language-server
       pyright

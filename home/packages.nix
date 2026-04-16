@@ -16,7 +16,9 @@ in
       bat
       ccls
       chrome
+      claude-code
       discord
+      element-desktop
       feh
       font-awesome
       git

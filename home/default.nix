@@ -4,6 +4,7 @@
     ./alacritty.nix
     ./git.nix
     ./i3.nix
+    # ./hyprland.nix
     ./neovim/neovim.nix
     ./packages.nix
     # ./vscode.nix
